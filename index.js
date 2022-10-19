@@ -1,14 +1,16 @@
-function guessNum() {
-  let range = 2;
+function guessNum(range) {
+  range = 2;
   var stage = 1;
-  let num = 0;
+  var num = 0;
   var randInt;
+  var point = 0;
   console.log("Welcome to number guessing game!")
   var name = prompt("Please Enter your name to start game");
   if (name.length === 0) {
     prompt("Please Enter your name to start game");
   }
   console.log(`You are now in stage ${stage}`)
+  console.log(`Total Point: ${point}`)
   num = parseInt(prompt(`Guess a number between 1 and ${range}: `))
   while (num != -1) {
     randInt = Math.floor((Math.random() * range) + 1);
@@ -16,7 +18,9 @@ function guessNum() {
       console.log("Correct!");
       range++;
       stage++;
+      point++;
       console.log(`You are now in stage ${stage}`)
+      console.log(`Total Point: ${point}`)
       num = parseInt(prompt(`Guess a number between 1 and ${range}: `))
     }
     else if ((!isCorrect(randInt, num) || num == NULL) && num != -1) {
